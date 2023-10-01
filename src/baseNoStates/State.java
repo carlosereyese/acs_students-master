@@ -1,9 +1,21 @@
 package baseNoStates;
 
-public interface State {
+abstract class State {
 
-  public void lock();
+    protected Door door;
 
-  public void unlock();
+    public State(Door door) {
+        this.door = door;
+    }
 
+    void Lock(Door door) {
+    }
+
+    void Unlock(Door puerta) {
+    }
+
+    public abstract void handleaction(String action);
+
+
+    public abstract String getName();
 }

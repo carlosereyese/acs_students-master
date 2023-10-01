@@ -1,15 +1,15 @@
 package baseNoStates;
+public class Unlock extends State {
+    public Unlock(Door puerta){
+        super(puerta);
+    }
 
-public class Unlock implements State {
+    @Override
+    public void handleaction(String action) {
+        if(action.equals(Actions.LOCK)){
+            door.setStateDoor(new Lock(door));
+        }
 
-  @Override
-  public void lock() {
-
-  }
-
-  @Override
-  public void unlock() {
-
-  }
-
+    }
+    public String getName() {return Actions.UNLOCK;}
 }

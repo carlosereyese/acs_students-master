@@ -3,18 +3,19 @@ package baseNoStates;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
 
+import javax.swing.*;
+
 
 public class Door {
   private final String id;
   private boolean closed; // physically
-
-  private State state;
-
-  private boolean locked;
+  private boolean locked; //no abrir.
+  private State stateDoor;
 
   public Door(String id) {
     this.id = id;
     closed = true;
+    stateDoor = new Lock(this);
   }
 
   public void processRequest(RequestReader request) {
@@ -32,10 +33,12 @@ public class Door {
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (closed) {
+        if (stateDoor instanceof Lock) {
+          System.out.println("Door is locked, unlock first and then open.");
+        } else if (closed){
           closed = false;
-        } else {
-          System.out.println("Can't open door " + id + " because it's already open");
+        } else{
+          System.out.println("Door is already open.");
         }
         break;
       case Actions.CLOSE:
@@ -46,15 +49,21 @@ public class Door {
         }
         break;
       case Actions.LOCK:
-        if (closed && !locked){
-          locked = true;
+        if(closed){
+          stateDoor.handleaction(action);
+        }else{
+          System.out.println("door must be closed to lock");
         }
         break;
+        // fall through
       case Actions.UNLOCK:
-        if (closed && locked){
-          locked = false;
+        if(closed && stateDoor instanceof Lock){
+          stateDoor.handleaction(action);
+        }else {
+          System.out.println("Puerta ya desbloqueada");
         }
         break;
+        // fall through
       case Actions.UNLOCK_SHORTLY:
         // TODO
         System.out.println("Action " + action + " not implemented yet");
@@ -74,7 +83,7 @@ public class Door {
   }
 
   public String getStateName() {
-    return "unlocked";
+    return stateDoor.getName();
   }
 
   @Override
@@ -92,5 +101,9 @@ public class Door {
     json.put("state", getStateName());
     json.put("closed", closed);
     return json;
+  }
+
+  public void setStateDoor(State newState) {
+    stateDoor = newState;
   }
 }
