@@ -141,7 +141,7 @@
         <h4> Action </h4>
         <form id="formAction">
             <div class="tooltip">
-                <label><input checked name="action" type="radio" value="lock" id="radiobutton_lock"> Lock</label>
+                <label><input checked name="action" type="radio" value="lock" id="radiobutton_lock"> baseNoStates.Lock</label>
                 <span class="tooltiptext">
 				    Enters Locked state from Unlocked if the door is closed. The door can now be unlocked
                     or shortly unlocked.
@@ -149,14 +149,14 @@
             </div>
             <br>
 			<div class="tooltip">
-				<label><input name="action" type="radio" value="unlock" id="radiobutton_unlock"> Unlock</label>
+				<label><input name="action" type="radio" value="unlock" id="radiobutton_unlock"> baseNoStates.Unlock</label>
 				<span class="tooltiptext">
 				    Enters Unlocked state from Locked. Now can be open, closed and locked again.
 			    </span>
 			</div>
             <br>
 			<div class="tooltip">
-				<label><input name="action" type="radio" value="unlock_shortly" id="radiobutton_unlock_shortly"> Unlock shortly</label>
+				<label><input name="action" type="radio" value="unlock_shortly" id="radiobutton_unlock_shortly"> baseNoStates.Unlock shortly</label>
 				<span class="tooltiptext">
 				    Enters the Unlocked Shortly state from Locked. Returns automatically to Locked after 10 seconds
 					if the door is closed. If it is open, it enters state Propped and goes back automatically to

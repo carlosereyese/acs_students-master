@@ -1,14 +1,20 @@
 package baseNoStates;
 
-public class Lock implements State{
+public class Lock extends State{
 
-  @Override
-  public void lock() {
+    public Lock(Door puerta) {
+        super(puerta);
+    }
 
-  }
+    @Override
+    public void handleaction(String action) {
+        if (action.equals(Actions.UNLOCK)) {
+            door.setStateDoor(new Unlock(door));
+        }
+        else {
+            System.out.println("La puerta ya esta bloqueada.");
+        }
 
-  @Override
-  public void unlock() {
-
-  }
+    }
+    public String getName() {return Actions.LOCK;}
 }

@@ -92,8 +92,8 @@ class Door {
         // the state of the door (locked, unlocked etc) to be shown through the reader color
 
         // the size of small squares representing readers of credentials, 10 in the original image
-        this.colorsOfStates = {"unlocked":"green",
-                                "locked":"orange",
+        this.colorsOfStates = {"unlock":"green",
+                                "lock":"orange",
                                 "unlocked_shortly":"lime",
                                 "propped": "red"};
         this.imageClosed = new Image();
