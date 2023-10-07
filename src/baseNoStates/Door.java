@@ -9,7 +9,6 @@ import javax.swing.*;
 public class Door {
   private final String id;
   private boolean closed; // physically
-  private boolean locked; //no abrir.
   private State stateDoor;
 
   public Door(String id) {
@@ -33,37 +32,17 @@ public class Door {
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (stateDoor instanceof Lock) {
-          System.out.println("Door is locked, unlock first and then open.");
-        } else if (closed){
-          closed = false;
-        } else{
-          System.out.println("Door is already open.");
-        }
+        stateDoor.open();
         break;
       case Actions.CLOSE:
-        if (closed) {
-          System.out.println("Can't close door " + id + " because it's already closed");
-        } else {
-          closed = true;
-        }
+        stateDoor.close();
         break;
       case Actions.LOCK:
-        if(closed){
-          stateDoor.handleaction(action);
-        }else{
-          System.out.println("door must be closed to lock");
-        }
+        stateDoor.lock();
         break;
-        // fall through
       case Actions.UNLOCK:
-        if(closed && stateDoor instanceof Lock){
-          stateDoor.handleaction(action);
-        }else {
-          System.out.println("Puerta ya desbloqueada");
-        }
+        stateDoor.unlock();
         break;
-        // fall through
       case Actions.UNLOCK_SHORTLY:
         // TODO
         System.out.println("Action " + action + " not implemented yet");
@@ -76,6 +55,10 @@ public class Door {
 
   public boolean isClosed() {
     return closed;
+  }
+
+  public void setClosed(boolean b) {
+    closed = b;
   }
 
   public String getId() {

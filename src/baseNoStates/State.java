@@ -8,14 +8,10 @@ abstract class State {
         this.door = door;
     }
 
-    void Lock(Door door) {
-    }
-
-    void Unlock(Door puerta) {
-    }
-
-    public abstract void handleaction(String action);
-
+    void lock() {}
+    void unlock() {}
+    void open() {}
+    void close() {}
 
     public abstract String getName();
 }

@@ -1,15 +1,33 @@
 package baseNoStates;
 public class Unlock extends State {
-    public Unlock(Door puerta){
-        super(puerta);
+    public Unlock(Door d){
+        super(d);
     }
 
-    @Override
-    public void handleaction(String action) {
-        if(action.equals(Actions.LOCK)){
-            door.setStateDoor(new Lock(door));
-        }
+    void lock() {
+        door.setStateDoor(new Lock(door));
+    }
 
+    void unlock() {
+        System.out.println("La puerta ya estaba unlocked");
+    }
+
+    void open() {
+        if (!door.isClosed()){
+            System.out.println("Door is already open");
+        }
+        else {
+            door.setClosed(false);
+        }
+    }
+
+    void close() {
+        if (door.isClosed()){
+            System.out.println("Door is already closed");
+        }
+        else {
+            door.setClosed(true);
+        }
     }
     public String getName() {return Actions.UNLOCK;}
 }
