@@ -1,4 +1,7 @@
-package baseNoStates;
+package baseNoStates.states;
+
+import baseNoStates.Actions;
+import baseNoStates.Door;
 
 import java.util.Observable;
 
@@ -6,19 +9,18 @@ public class Unlock extends State {
     public Unlock(Door d){
         super(d);
     }
-
-    void lock() {
-        door.setStateDoor(new Lock(door));
+    public void lock() {
+        if (!door.isClosed()){
+            System.out.println("Cant lock open door.");
+        } else {
+            door.setStateDoor(new Lock(door));
+        }
     }
-
-    void unlock() {
+    public void unlock() {
         System.out.println("La puerta ya estaba unlocked");
     }
-
-
-    void unlockShortly() {System.out.println("La puerta ya estaba unlocked");}
-
-    void open() {
+    public void unlockShortly() {System.out.println("La puerta ya estaba unlocked");}
+    public void open() {
         if (!door.isClosed()){
             System.out.println("Door is already open");
         }
@@ -26,8 +28,7 @@ public class Unlock extends State {
             door.setClosed(false);
         }
     }
-
-    void close() {
+    public void close() {
         if (door.isClosed()){
             System.out.println("Door is already closed");
         }
@@ -36,7 +37,6 @@ public class Unlock extends State {
         }
     }
     public String getName() {return Actions.UNLOCK;}
-
     @Override
     public void update(Observable o, Object arg) {
 

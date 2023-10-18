@@ -1,8 +1,10 @@
-package baseNoStates;
+package baseNoStates.states;
+import baseNoStates.Door;
+
 import java.util.Observable;
 import java.util.Observer;
 
-abstract class State implements Observer {
+public abstract class State implements Observer {
     protected Door door;
     public State(Door door) {
         this.door = door;
@@ -12,11 +14,11 @@ abstract class State implements Observer {
         observable.addObserver(this);
     }
 
-    void lock() {}
-    void unlock() {}
-    void unlockShortly() {}
-    void open() {}
-    void close() {}
+    public void lock() {}
+    public void unlock() {}
+    public void unlockShortly() {}
+    public void open() {}
+    public void close() {}
 
     public abstract String getName();
 }

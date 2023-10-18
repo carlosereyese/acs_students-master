@@ -1,8 +1,7 @@
 package baseNoStates;
+import baseNoStates.states.*;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
-
-import javax.swing.*;
 
 
 public class Door {

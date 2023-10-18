@@ -1,8 +1,9 @@
-package baseNoStates;
-import java.lang.Thread;
-import java.time.OffsetTime;
+package baseNoStates.states;
+import baseNoStates.Actions;
+import baseNoStates.ClockTimer;
+import baseNoStates.Door;
+
 import java.util.Observable;
-import java.util.concurrent.TimeUnit;
 
 public class Lock extends State{
 
@@ -12,18 +13,16 @@ public class Lock extends State{
     public Lock(Door door, Observable observable) {
         super(door, observable);
     }
-
-    void lock() {
+    public void lock() {
         System.out.println("The door is already locked");
     }
-
-    void unlock() {
+    public void unlock() {
         door.setStateDoor(new Unlock(door));
     }
-    void unlockShortly() {
-        door.setStateDoor(new UnlockShortly(door));
+    public void unlockShortly() {
+        door.setStateDoor(new UnlockShortly(door, new ClockTimer()));
     }
-    void open() {
+    public void open() {
         if (!door.isClosed()){
             System.out.println("Door is already open");
         }
@@ -31,8 +30,7 @@ public class Lock extends State{
             System.out.println("Can't open a locked door");
         }
     }
-
-    void close() {
+    public void close() {
         if (door.isClosed()){
             System.out.println("Door is already closed");
         }
@@ -40,11 +38,8 @@ public class Lock extends State{
             door.setClosed(true);
         }
     }
-
     public String getName() {return Actions.LOCK;}
-
     @Override
     public void update(Observable o, Object arg) {
-
     }
 }
