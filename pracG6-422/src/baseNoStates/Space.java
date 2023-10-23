@@ -1,10 +1,12 @@
 package baseNoStates;
 
-public class Space extends Area {
-    //array de doors[]
-    private Door[] puertas;
+import java.util.ArrayList;
 
-    public Space(Door[] puertas) {
-        this.puertas = puertas;
+public class Space extends Area {
+
+    private ArrayList<Door> doors;
+
+    public Space(ArrayList<Door> doors) {
+        this.doors = doors;
     }
 }

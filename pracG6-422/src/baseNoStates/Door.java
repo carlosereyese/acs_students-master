@@ -9,8 +9,20 @@ public class Door {
   private boolean closed; // physically
   private State stateDoor;
 
+  private String from;
+
+  private String to;
+
   public Door(String id) {
     this.id = id;
+    closed = true;
+    stateDoor = new Lock(this);
+  }
+
+  public Door(String id, String from, String to) {
+    this.id = id;
+    this.to = to;
+    this.from = from;
     closed = true;
     stateDoor = new Lock(this);
   }
