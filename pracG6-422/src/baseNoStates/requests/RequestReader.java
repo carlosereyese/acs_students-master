@@ -88,19 +88,15 @@ public class RequestReader implements Request {
     doorClosed = door.isClosed();
   }
 
-  // the result is put into the request object plus, if not authorized, why not,
-  // only for testing
   private void authorize(User user, Door door) {
     if (user == null) {
       authorized = false;
       addReason("user doesn't exists");
     } else {
-      //TODO: get the who, where, when and what in order to decide, and if not
-      // authorized add the reason(s)
-
-      //door.getFrom();
-      //user.canAccess(door)
-      authorized = true;
+      String to = door.getTo();
+      if(user.canAccess(to, now, action)){
+        authorized = true;
+      }
     }
   }
 }

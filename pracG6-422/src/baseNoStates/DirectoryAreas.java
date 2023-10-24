@@ -35,4 +35,6 @@ public class DirectoryAreas {
     System.out.println("area with id " + id + " not found");
     return null;
   }
+
+  public static ArrayList<Area> getAllAreas() { return allAreas; }
 }

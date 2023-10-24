@@ -15,9 +15,9 @@ public class Partition extends Area {
     ArrayList<Door> doorsAreas = new ArrayList<Door>();
     for (Area i : areas){
      doorsAreas.addAll(i.getDoorsGivingAccess());
-    return doorsAreas;
+
     }
-    return null;
+    return doorsAreas;
   }
 
   public Area findAreaById(String id) {

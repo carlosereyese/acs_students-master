@@ -8,9 +8,7 @@ public class Door {
   private final String id;
   private boolean closed; // physically
   private State stateDoor;
-
   private String from;
-
   private String to;
 
   public Door(String id) {
@@ -97,5 +95,21 @@ public class Door {
 
   public void setStateDoor(State newState) {
     stateDoor = newState;
+  }
+
+  public String getFrom() {
+    return from;
+  }
+
+  public void setFrom(String from) {
+    this.from = from;
+  }
+
+  public String getTo() {
+    return to;
+  }
+
+  public void setTo(String to) {
+    this.to = to;
   }
 }

@@ -6,8 +6,8 @@ package baseNoStates;
 public class Main {
   public static void main(String[] args) {
     DirectoryDoors.makeDoors();
-    DirectoryUsers.makeUsers();
     DirectoryAreas.makeAreas(DirectoryDoors.getAllDoors());
+    DirectoryUsers.makeUsers();
     new WebServer();
   }
 }
