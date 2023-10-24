@@ -3,6 +3,9 @@ package baseNoStates.requests;
 import baseNoStates.Actions;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import baseNoStates.DirectoryAreas;
+import baseNoStates.Area;
+import baseNoStates.Door;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -65,8 +68,6 @@ public class RequestArea implements Request {
   // it won't be authorized and nothing will happen to them.
   public void process() {
     // commented out until Area, Space and Partition are implemented
-
-    /*
     // make the door requests and put them into the area request to be authorized later and
     // processed later
     Area area = DirectoryAreas.findAreaById(areaId);
@@ -85,6 +86,5 @@ public class RequestArea implements Request {
         requests.add(requestReader);
       }
     }
-     */
   }
 }
