@@ -3,7 +3,7 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public class Partition extends Area {
-
+/*  Tipo de area que contiene una arbol de areas.  */
   private ArrayList<Area> areas;
 
   public Partition(ArrayList<Area> areas, String id) {

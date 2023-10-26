@@ -5,6 +5,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 public abstract class State implements Observer {
+/*  Esta interfaz implementa los patrones State y Observer. A partir de ella derivan diferentes
+    estados que redefinen los metodos.  */
+
     protected Door door;
     public State(Door door) {
         this.door = door;

@@ -25,6 +25,7 @@ public class Schedule {
     this.toHour = toHour;
   }
 
+/*  Metodo que verifica que un usuario que pertenezca a un grupo tenga acceso a una determinada hora  */
   public boolean isAllowedAtTime(LocalDateTime dateTime){
     LocalDate date = dateTime.toLocalDate();
     LocalTime time = dateTime.toLocalTime();

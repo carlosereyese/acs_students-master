@@ -6,6 +6,7 @@ import baseNoStates.Door;
 import java.util.Observable;
 
 public class Unlock extends State {
+/*  Aplica toda la logica de los cambios de estados cuando la puerta esta desbloqueada. */
     public Unlock(Door d){
         super(d);
     }

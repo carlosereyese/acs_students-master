@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ClockTimer extends Observable {
+/*  ClockTimer gestiona la espera de la funcionalidad UnluckShortly, aplicando el patron Observer.
+    Esta clase extiende de Observable, que nos brinda de los metodos necesarios para aplicar el patron. */
     private int seconds;
 
     public ClockTimer() {
@@ -19,8 +21,8 @@ public class ClockTimer extends Observable {
                 seconds += 10;
                 if (seconds >= 10)
                     timer.cancel();
-                setChanged(); // Mark the subject as changed
-                notifyObservers(seconds); // Notify the observers
+                setChanged(); // Cambia el objeto a estado modificado
+                notifyObservers(seconds); // Avisa a los observadores
             }
         }, 10000, 10000);
     }

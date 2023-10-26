@@ -5,7 +5,8 @@ import baseNoStates.Door;
 
 import java.util.Observable;
 
-public class Lock extends State{
+public class Lock extends State {
+/*  Aplica toda la logica de los cambios de estados cuando la puerta esta bloqueada.    */
 
     public Lock(Door d) {
         super(d);

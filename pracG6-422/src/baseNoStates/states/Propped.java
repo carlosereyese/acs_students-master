@@ -6,6 +6,8 @@ import baseNoStates.Door;
 import java.util.Observable;
 
 public class Propped extends State {
+/*  Aplica toda la logica de los cambios de estados cuando la puerta esta propped.  */
+
   public Propped(Door d){
     super(d);
   }
