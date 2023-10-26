@@ -11,9 +11,6 @@ public class Lock extends State {
     public Lock(Door d) {
         super(d);
     }
-    public Lock(Door door, Observable observable) {
-        super(door, observable);
-    }
     public void lock() {
         System.out.println("The door is already locked");
     }
@@ -40,7 +37,4 @@ public class Lock extends State {
         }
     }
     public String getName() {return Actions.LOCK;}
-    @Override
-    public void update(Observable o, Object arg) {
-    }
 }

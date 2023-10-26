@@ -95,7 +95,7 @@ public class RequestReader implements Request {
     } else {
       String to = door.getTo();
       //utilizamos la funcion canAcces de User para ver si tienen acceso.
-      if(user.canAccess(to, now, action)){
+      if(user.canAccess(to, now, action)){ //getfrom de area.,,, añadir reasons.
         authorized = true;
       }
     }

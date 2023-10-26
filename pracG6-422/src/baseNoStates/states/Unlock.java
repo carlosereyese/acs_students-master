@@ -38,8 +38,5 @@ public class Unlock extends State {
         }
     }
     public String getName() {return Actions.UNLOCK;}
-    @Override
-    public void update(Observable o, Object arg) {
 
-    }
 }

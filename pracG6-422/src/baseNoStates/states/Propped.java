@@ -26,8 +26,4 @@ public class Propped extends State {
     door.setStateDoor(new Lock(door));
   }
   public String getName() {return Actions.PROPPED;}
-  @Override
-  public void update(Observable o, Object arg) {
-
-  }
 }

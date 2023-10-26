@@ -4,15 +4,19 @@ import baseNoStates.ClockTimer;
 import baseNoStates.Door;
 
 import java.util.Observable;
+import java.util.Observer;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class UnlockShortly extends State {
+public class UnlockShortly extends State implements Observer {
 /*  Aplica toda la logica de los cambios de estados cuando la puerta esta desbloqueada brevemente.
     Aplica el patron Observer con la clase Observer que implementa State.   */
     public  UnlockShortly(Door door) {
         super(door);
     }
     public  UnlockShortly(Door door, ClockTimer timer) {
-        super(door, timer);
+        super(door);
+        timer.addObserver(this);
         timer.startTimer(); //Comienza un temporizador en el momento que pasa al estado UnlockShortly
     }
 

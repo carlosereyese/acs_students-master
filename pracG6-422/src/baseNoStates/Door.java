@@ -8,8 +8,8 @@ public class Door {
   private final String id;
   private boolean closed; // physically
   private State stateDoor;
-  private String from;
-  private String to;
+  private String from; //cambiar a space
+  private String to; //cambiar a space
 
   public Door(String id) {
     this.id = id;
