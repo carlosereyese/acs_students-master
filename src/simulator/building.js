@@ -94,7 +94,7 @@ class Door {
         // the size of small squares representing readers of credentials, 10 in the original image
         this.colorsOfStates = {"unlock":"green",
                                 "lock":"orange",
-                                "unlocked_shortly":"lime",
+                                "unlock_shortly":"lime",
                                 "propped": "red"};
         this.imageClosed = new Image();
         this.imageClosed.src = "images/" + id + "_closed.png";

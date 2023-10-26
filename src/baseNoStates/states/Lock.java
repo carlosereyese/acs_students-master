@@ -1,20 +1,26 @@
-package baseNoStates;
+package baseNoStates.states;
+import baseNoStates.Actions;
+import baseNoStates.ClockTimer;
+import baseNoStates.Door;
 
-public class Lock extends State{
+import java.util.Observable;
+
+public class Lock extends State {
+/*  Aplica toda la logica de los cambios de estados cuando la puerta esta bloqueada.    */
 
     public Lock(Door d) {
         super(d);
     }
-
-    void lock() {
+    public void lock() {
         System.out.println("The door is already locked");
     }
-
-    void unlock() {
+    public void unlock() {
         door.setStateDoor(new Unlock(door));
     }
-
-    void open() {
+    public void unlockShortly() {
+        door.setStateDoor(new UnlockShortly(door, new ClockTimer()));
+    }
+    public void open() {
         if (!door.isClosed()){
             System.out.println("Door is already open");
         }
@@ -22,8 +28,7 @@ public class Lock extends State{
             System.out.println("Can't open a locked door");
         }
     }
-
-    void close() {
+    public void close() {
         if (door.isClosed()){
             System.out.println("Door is already closed");
         }
@@ -31,6 +36,5 @@ public class Lock extends State{
             door.setClosed(true);
         }
     }
-
     public String getName() {return Actions.LOCK;}
 }

@@ -3,6 +3,9 @@ package baseNoStates.requests;
 import baseNoStates.Actions;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import baseNoStates.DirectoryAreas;
+import baseNoStates.Area;
+import baseNoStates.Door;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -64,27 +67,19 @@ public class RequestArea implements Request {
   // them to all of its doors. For some it may be authorized and action will be done, for others
   // it won't be authorized and nothing will happen to them.
   public void process() {
-    // commented out until Area, Space and Partition are implemented
-
-    /*
-    // make the door requests and put them into the area request to be authorized later and
-    // processed later
+    //buscamos el Area de la request con la funcion recursiva findaAreabyID.
     Area area = DirectoryAreas.findAreaById(areaId);
-    // an Area is a Space or a Partition
+    //una Area es un Space o una Partition
     if (area != null) {
-      // is null when from the app we click on an action but no place is selected because
-      // there (flutter) I don't control like I do in javascript that all the parameters are provided
+      //es null cuando no se selecciona nada en la web
 
-      // Make all the door requests, one for each door in the area, and process them.
-      // Look for the doors in the spaces of this area that give access to them.
+      //Crear una request para cada door que da access al Area.
       for (Door door : area.getDoorsGivingAccess()) {
         RequestReader requestReader = new RequestReader(credential, action, now, door.getId());
         requestReader.process();
-        // after process() the area request contains the answer as the answer
-        // to each individual door request, that is read by the simulator/Flutter app
+
         requests.add(requestReader);
       }
     }
-     */
   }
 }

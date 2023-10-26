@@ -88,16 +88,35 @@ public class RequestReader implements Request {
     doorClosed = door.isClosed();
   }
 
-  // the result is put into the request object plus, if not authorized, why not,
-  // only for testing
   private void authorize(User user, Door door) {
     if (user == null) {
       authorized = false;
       addReason("user doesn't exists");
     } else {
-      //TODO: get the who, where, when and what in order to decide, and if not
-      // authorized add the reason(s)
-      authorized = true;
+      String to = door.getTo();
+      String from = door.getFrom();
+      if(user.getGroup().canAccessArea(to)){
+        if(user.getGroup().isAllowedAtTime(now)) {
+          if(user.getGroup().isAllowedToDoAction(action)){
+            authorized = true;
+          }else{
+            reasons.add("InvalidAction");
+          }
+        }else{
+          reasons.add("InvalidDate");
+        }
+      }else{
+        reasons.add("InvalidArea");
+      }
+
+      //utilizamos la funcion canAcces de User para ver si tienen acceso.
+      //find userbycredential, poner canacces aqui.
+      /*if(user.canAccess(to, now, action)){ //getfrom de area.,,, añadir reasons.
+        authorized = true;
+      }
+      else{ //estara
+
+      }*/
     }
   }
 }

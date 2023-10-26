@@ -1,18 +1,26 @@
 package baseNoStates;
-
+import baseNoStates.states.*;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
-
-import javax.swing.*;
 
 
 public class Door {
   private final String id;
   private boolean closed; // physically
   private State stateDoor;
+  private String from; //cambiar a space
+  private String to; //cambiar a space
 
   public Door(String id) {
     this.id = id;
+    closed = true;
+    stateDoor = new Lock(this);
+  }
+
+  public Door(String id, String from, String to) {
+    this.id = id;
+    this.to = to;
+    this.from = from;
     closed = true;
     stateDoor = new Lock(this);
   }
@@ -29,6 +37,7 @@ public class Door {
     request.setDoorStateName(getStateName());
   }
 
+  //doaction switch con cada action que tiene que hacer la door.
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
@@ -44,8 +53,7 @@ public class Door {
         stateDoor.unlock();
         break;
       case Actions.UNLOCK_SHORTLY:
-        // TODO
-        System.out.println("Action " + action + " not implemented yet");
+        stateDoor.unlockShortly();
         break;
       default:
         assert false : "Unknown action " + action;
@@ -88,5 +96,21 @@ public class Door {
 
   public void setStateDoor(State newState) {
     stateDoor = newState;
+  }
+
+  public String getFrom() {
+    return from;
+  }
+
+  public void setFrom(String from) {
+    this.from = from;
+  }
+
+  public String getTo() {
+    return to;
+  }
+
+  public void setTo(String to) {
+    this.to = to;
   }
 }
