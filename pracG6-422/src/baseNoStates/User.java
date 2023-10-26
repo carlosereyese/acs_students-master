@@ -26,6 +26,8 @@ public class User {
     return group.canAccessArea(areaId) && group.isAllowedAtTime(dateTime) && group.isAllowedToDoAction(action);
   }
 
+  public Group getGroup() {return group;}
+
   @Override
   public String toString() {
     return "User{name=" + name + ", credential=" + credential + "}";

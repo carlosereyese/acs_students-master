@@ -94,10 +94,28 @@ public class RequestReader implements Request {
       addReason("user doesn't exists");
     } else {
       String to = door.getTo();
+      if(user.getGroup().canAccessArea(to)){
+        if(user.getGroup().isAllowedAtTime(now)) {
+          if(user.getGroup().isAllowedToDoAction(action)){
+            authorized = true;
+          }else{
+            reasons.add("InvalidAction");
+          }
+        }else{
+          reasons.add("InvalidDate");
+        }
+      }else{
+        reasons.add("InvalidArea");
+      }
+
       //utilizamos la funcion canAcces de User para ver si tienen acceso.
-      if(user.canAccess(to, now, action)){ //getfrom de area.,,, añadir reasons.
+      //find userbycredential, poner canacces aqui.
+      /*if(user.canAccess(to, now, action)){ //getfrom de area.,,, añadir reasons.
         authorized = true;
       }
+      else{ //estara
+
+      }*/
     }
   }
 }
