@@ -67,6 +67,7 @@ public class RequestArea implements Request {
   // them to all of its doors. For some it may be authorized and action will be done, for others
   // it won't be authorized and nothing will happen to them.
   public void process() {
+    //buscamos el Area de la request con la funcion recursiva findaAreabyID.
     Area area = DirectoryAreas.findAreaById(areaId);
     //una Area es un Space o una Partition
     if (area != null) {
