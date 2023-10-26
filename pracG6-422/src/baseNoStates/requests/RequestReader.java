@@ -94,6 +94,7 @@ public class RequestReader implements Request {
       addReason("user doesn't exists");
     } else {
       String to = door.getTo();
+      String from = door.getFrom();
       if(user.getGroup().canAccessArea(to)){
         if(user.getGroup().isAllowedAtTime(now)) {
           if(user.getGroup().isAllowedToDoAction(action)){
