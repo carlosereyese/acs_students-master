@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User {
+
+  /*Esta clase tiene el metodo canAcces el cual comprueva que el usuario pueda acceder a esa area en ese schedule en esa date
+  * y si tiene permiso para hacer esa action.*/
   private final String name;
   private final String credential;
   private Group group;

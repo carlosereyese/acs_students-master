@@ -37,6 +37,7 @@ public class Door {
     request.setDoorStateName(getStateName());
   }
 
+  //doaction switch con cada action que tiene que hacer la door.
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:

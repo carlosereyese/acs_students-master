@@ -94,6 +94,7 @@ public class RequestReader implements Request {
       addReason("user doesn't exists");
     } else {
       String to = door.getTo();
+      //utilizamos la funcion canAcces de User para ver si tienen acceso.
       if(user.canAccess(to, now, action)){
         authorized = true;
       }

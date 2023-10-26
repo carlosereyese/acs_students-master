@@ -7,7 +7,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Schedule {
-
+/*En esta clase se guarda la informacion de un horario, se usara el metodo isAllowedTime para comporovar si un usuario esta intentando
+* acceder a un siton en el horario que le corresponde, comparando LocalDate que recivimos de la peticion.*/
   private LocalDate fromDate;
   private LocalDate toDate;
   private ArrayList<DayOfWeek> daysOfWeeks;

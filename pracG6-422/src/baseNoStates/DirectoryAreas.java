@@ -8,6 +8,7 @@ public class DirectoryAreas {
   private static ArrayList<Area> allAreas;
 
   public static void makeAreas(ArrayList<Door> allDoors) {
+    //creamos primero las hojas del arbol, los spaces para luego poder meterlos en una lista i crear las partitions.
     Space parking = new Space(new ArrayList<>(Arrays.asList(allDoors.get(0), allDoors.get(1))), "parking");
     Space hall = new Space(new ArrayList<>(Arrays.asList(allDoors.get(2), allDoors.get(3))), "hall");
     Space room1 = new Space(new ArrayList<>(Arrays.asList(allDoors.get(4))), "room1");
@@ -16,10 +17,12 @@ public class DirectoryAreas {
     Space room3 = new Space(new ArrayList<>(Arrays.asList(allDoors.get(7))), "room3");
     Space IT = new Space(new ArrayList<>(Arrays.asList(allDoors.get(8))), "IT");
 
+    //creamos las partitions a partir de coger todas las doors de la lista de areas que componen a la partition
     Partition basement = new Partition(new ArrayList<>(Arrays.asList(parking)), "basement");
     Partition groundFloor = new Partition(new ArrayList<>(Arrays.asList(hall, room1, room2)), "ground_floor");
     Partition floor1 = new Partition(new ArrayList<>(Arrays.asList(room3, corridor, IT)), "floor1");
 
+    //esta partition es building de la qual cogemos todas las puertas de todas las partitions.
     Partition building = new Partition(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1)), "building");
 
     allAreas = new ArrayList<>(Arrays.asList(building));
