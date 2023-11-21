@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class User {
 
-/*  Esta clase tiene el metodo canAccess() el cual comprueba que el usuario pueda acceder a esa
-    area en ese schedule en esa date y si tiene permiso para hacer esa action. */
+  /*  Esta clase tiene el metodo canAccess() el cual comprueba que el usuario pueda acceder a esa
+      area en ese schedule en esa date y si tiene permiso para hacer esa action. */
   private final String name;
   private final String credential;
-  private Group group;
+  private final Group group;
 
   public User(String name, String credential, Group group) {
     this.name = name;
@@ -21,12 +21,16 @@ public class User {
     return credential;
   }
 
-/*  Metodo que consulta los permisos del grupo al que pertenece para verificar si un usuario puede acceder.  */
-  public boolean canAccess(String areaId, LocalDateTime dateTime, String action){
-    return group.canAccessArea(areaId) && group.isAllowedAtTime(dateTime) && group.isAllowedToDoAction(action);
+  /*  Metodo que consulta los permisos del grupo al
+  que pertenece para verificar si un usuario puede acceder.  */
+  public boolean canAccess(String areaId, LocalDateTime dateTime, String action) {
+    return group.canAccessArea(areaId) && group.isAllowedAtTime(dateTime)
+        && group.isAllowedToDoAction(action);
   }
 
-  public Group getGroup() {return group;}
+  public Group getGroup() {
+    return group;
+  }
 
   @Override
   public String toString() {

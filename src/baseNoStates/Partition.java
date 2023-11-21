@@ -3,8 +3,8 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public class Partition extends Area {
-/*  Tipo de area que contiene una arbol de areas.  */
-  private ArrayList<Area> areas;
+  /*  Tipo de area que contiene una arbol de areas.  */
+  private final ArrayList<Area> areas;
 
   public Partition(ArrayList<Area> areas, String id) {
     super(id);
@@ -13,8 +13,8 @@ public class Partition extends Area {
 
   public ArrayList<Door> getDoorsGivingAccess() {
     ArrayList<Door> doorsAreas = new ArrayList<Door>();
-    for (Area i : areas){
-     doorsAreas.addAll(i.getDoorsGivingAccess());
+    for (Area i : areas) {
+      doorsAreas.addAll(i.getDoorsGivingAccess());
 
     }
     return doorsAreas;
@@ -23,11 +23,10 @@ public class Partition extends Area {
   public Area findAreaById(String id) {
     if (this.getId().equals(id)) {
       return this;
-    }
-    else{
-      for (Area area : areas){
+    } else {
+      for (Area area : areas) {
         Area res = area.findAreaById(id);
-        if(res != null){
+        if (res != null) {
           return res;
         }
       }

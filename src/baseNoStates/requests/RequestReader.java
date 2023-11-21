@@ -4,6 +4,7 @@ import baseNoStates.DirectoryDoors;
 import baseNoStates.DirectoryUsers;
 import baseNoStates.Door;
 import baseNoStates.User;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -52,15 +53,15 @@ public class RequestReader implements Request {
       userName = "unknown";
     }
     return "Request{"
-            + "credential=" + credential
-            + ", userName=" + userName
-            + ", action=" + action
-            + ", now=" + now
-            + ", doorID=" + doorId
-            + ", closed=" + doorClosed
-            + ", authorized=" + authorized
-            + ", reasons=" + reasons
-            + "}";
+        + "credential=" + credential
+        + ", userName=" + userName
+        + ", action=" + action
+        + ", now=" + now
+        + ", doorID=" + doorId
+        + ", closed=" + doorClosed
+        + ", authorized=" + authorized
+        + ", reasons=" + reasons
+        + "}";
   }
 
   public JSONObject answerToJson() {
@@ -95,28 +96,19 @@ public class RequestReader implements Request {
     } else {
       String to = door.getTo();
       String from = door.getFrom();
-      if(user.getGroup().canAccessArea(to)){
-        if(user.getGroup().isAllowedAtTime(now)) {
-          if(user.getGroup().isAllowedToDoAction(action)){
+      if (user.getGroup().canAccessArea(to)) {
+        if (user.getGroup().isAllowedAtTime(now)) {
+          if (user.getGroup().isAllowedToDoAction(action)) {
             authorized = true;
-          }else{
+          } else {
             reasons.add("InvalidAction");
           }
-        }else{
+        } else {
           reasons.add("InvalidDate");
         }
-      }else{
+      } else {
         reasons.add("InvalidArea");
       }
-
-      //utilizamos la funcion canAcces de User para ver si tienen acceso.
-      //find userbycredential, poner canacces aqui.
-      /*if(user.canAccess(to, now, action)){ //getfrom de area.,,, añadir reasons.
-        authorized = true;
-      }
-      else{ //estara
-
-      }*/
     }
   }
 }
