@@ -1,12 +1,16 @@
 package baseNoStates;
 
+import baseNoStates.states.Lock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DirectoryAreas {
 
   private static ArrayList<Area> allAreas;
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public static void makeAreas(ArrayList<Door> allDoors) {
     //creamos primero las hojas del arbol, los spaces, a partir de las puertas que la commponen
@@ -49,7 +53,8 @@ public class DirectoryAreas {
         return res;
       }
     }
-    System.out.println("area with id " + id + " not found");
+    logger.info("Area with id " + id + " not found");
+
     return null;
   }
 

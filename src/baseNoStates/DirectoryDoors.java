@@ -1,10 +1,15 @@
 package baseNoStates;
 
+import baseNoStates.states.Lock;
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class DirectoryDoors {
   private static ArrayList<Door> allDoors;
+
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public static void makeDoors() {
     // basement
@@ -32,7 +37,7 @@ public final class DirectoryDoors {
         return door;
       }
     }
-    System.out.println("door with id " + id + " not found");
+    logger.info("Door with id " + id + " not found");
     return null; // otherwise we get a Java error
   }
 

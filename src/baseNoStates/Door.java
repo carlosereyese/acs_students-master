@@ -4,6 +4,8 @@ import baseNoStates.requests.RequestReader;
 import baseNoStates.states.Lock;
 import baseNoStates.states.State;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Door {
@@ -12,6 +14,7 @@ public class Door {
   private State stateDoor;
   private String from; //cambiar a space
   private String to; //cambiar a space
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public Door(String id) {
     this.id = id;
@@ -30,11 +33,13 @@ public class Door {
   public void processRequest(RequestReader request) {
     // it is the Door that process the request because the door has and knows
     // its state, and if closed or open
+    logger.debug("Processing request...");
     if (request.isAuthorized()) {
       String action = request.getAction();
       doAction(action);
+      logger.info("Request is processed successfully");
     } else {
-      System.out.println("not authorized");
+      logger.warn("Not authorized");
     }
     request.setDoorStateName(getStateName());
   }

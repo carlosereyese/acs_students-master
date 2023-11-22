@@ -1,10 +1,14 @@
 package baseNoStates;
 
+import baseNoStates.states.Lock;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 
 public class Partition extends Area {
   /*  Tipo de area que contiene una arbol de areas.  */
   private final ArrayList<Area> areas;
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public Partition(ArrayList<Area> areas, String id) {
     super(id);
@@ -31,7 +35,7 @@ public class Partition extends Area {
         }
       }
     }
-    System.out.println("area with id " + id + " not found");
+    logger.info("Area with id " + id + " not found");
     return null; // otherwise we get a Java error
   }
 
