@@ -1,7 +1,8 @@
 package baseNoStates;
 
 import baseNoStates.requests.RequestReader;
-import baseNoStates.states.*;
+import baseNoStates.states.Lock;
+import baseNoStates.states.State;
 import org.json.JSONObject;
 
 
