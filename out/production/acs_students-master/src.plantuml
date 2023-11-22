@@ -1,0 +1,224 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Actions {
+  + Actions(): 
+  + UNLOCK: String
+  + UNLOCK_SHORTLY: String
+  + PROPPED: String
+  + CLOSE: String
+  + LOCK: String
+  + OPEN: String
+}
+class Area {
+  + Area(String): 
+  - id: String
+  + getDoorsGivingAccess(): ArrayList<Door>
+  + getId(): String
+  + setId(String): void
+  + findAreaById(String): Area
+}
+class ClockTimer {
+  + ClockTimer(): 
+  - seconds: int
+  + startTimer(): void
+}
+class DirectoryAreas {
+  + DirectoryAreas(): 
+  - allAreas: ArrayList<Area>
+  + makeAreas(ArrayList<Door>): void
+  + findAreaById(String): Area?
+  + getAllAreas(): ArrayList<Area>
+}
+class DirectoryDoors {
+  + DirectoryDoors(): 
+  - allDoors: ArrayList<Door>
+  + findDoorById(String): Door?
+  + getAllDoors(): ArrayList<Door>
+  + makeDoors(): void
+}
+class DirectoryUsers {
+  + DirectoryUsers(): 
+  - users: ArrayList<User>
+  + makeUsers(): void
+  + findUserByCredential(String): User?
+}
+class Door {
+  + Door(String): 
+  + Door(String, String, String): 
+  - stateDoor: State
+  - to: String
+  - from: String
+  - closed: boolean
+  - id: String
+  + setClosed(boolean): void
+  + setTo(String): void
+  + processRequest(RequestReader): void
+  + getStateName(): String
+  + setStateDoor(State): void
+  + isClosed(): boolean
+  + getTo(): String
+  + getId(): String
+  + toJson(): JSONObject
+  + setFrom(String): void
+  - doAction(String): void
+  + getFrom(): String
+  + toString(): String
+}
+class Group {
+  + Group(String, ArrayList<Area>, ArrayList<String>, Schedule): 
+  - schedule: Schedule
+  - id: String
+  - allowedAreas: ArrayList<Area>
+  - allowedActions: ArrayList<String>
+  + isAllowedToDoAction(String): boolean
+  + canAccessArea(String): boolean
+  + isAllowedAtTime(LocalDateTime): boolean
+}
+class Lock {
+  + Lock(Door): 
+  + lock(): void
+  + open(): void
+  + unlock(): void
+  + getName(): String
+  + close(): void
+  + unlockShortly(): void
+}
+class Main {
+  + Main(): 
+  + main(String[]): void
+}
+class Partition {
+  + Partition(ArrayList<Area>, String): 
+  - areas: ArrayList<Area>
+  + findAreaById(String): Area
+  + getDoorsGivingAccess(): ArrayList<Door>
+}
+class Propped {
+  + Propped(Door): 
+  + getName(): String
+  + unlock(): void
+  + unlockShortly(): void
+  + lock(): void
+  + open(): void
+  + close(): void
+}
+interface Request << interface >> {
+  + process(): void
+  + toString(): String
+  + answerToJson(): JSONObject
+}
+class RequestArea {
+  + RequestArea(String, String, LocalDateTime, String): 
+  - areaId: String
+  - now: LocalDateTime
+  - requests: ArrayList<RequestReader>
+  - action: String
+  - credential: String
+  + toString(): String
+  + getAction(): String
+  + process(): void
+  + answerToJson(): JSONObject
+}
+class RequestReader {
+  + RequestReader(String, String, LocalDateTime, String): 
+  - authorized: boolean
+  - credential: String
+  - doorId: String
+  - doorClosed: boolean
+  - doorStateName: String
+  - action: String
+  - now: LocalDateTime
+  - userName: String
+  - reasons: ArrayList<String>
+  + answerToJson(): JSONObject
+  + addReason(String): void
+  - authorize(User, Door): void
+  + setDoorStateName(String): void
+  + isAuthorized(): boolean
+  + toString(): String
+  + getAction(): String
+  + process(): void
+}
+class RequestRefresh {
+  + RequestRefresh(): 
+  - jsonsDoors: ArrayList<JSONObject>
+  + process(): void
+  + toString(): String
+  + answerToJson(): JSONObject
+}
+class Schedule {
+  + Schedule(LocalDate, LocalDate, ArrayList<DayOfWeek>, LocalTime, LocalTime): 
+  + Schedule(): 
+  - fromDate: LocalDate
+  - toDate: LocalDate
+  - toHour: LocalTime
+  - daysOfWeeks: ArrayList<DayOfWeek>
+  - fromHour: LocalTime
+  + isAllowedAtTime(LocalDateTime): boolean
+}
+class Space {
+  + Space(ArrayList<Door>, String): 
+  - doors: ArrayList<Door>
+  + getDoorsGivingAccess(): ArrayList<Door>
+  + findAreaById(String): Area
+}
+class State {
+  + State(Door): 
+  # door: Door
+  + close(): void
+  + unlockShortly(): void
+  + getName(): String
+  + open(): void
+  + lock(): void
+  + unlock(): void
+}
+class Unlock {
+  + Unlock(Door): 
+  + getName(): String
+  + unlockShortly(): void
+  + lock(): void
+  + close(): void
+  + unlock(): void
+  + open(): void
+}
+class UnlockShortly {
+  + UnlockShortly(Door): 
+  + UnlockShortly(Door, ClockTimer): 
+  + close(): void
+  + getName(): String
+  + update(Observable, Object): void
+  + lock(): void
+  + open(): void
+  + unlockShortly(): void
+  + unlock(): void
+}
+class User {
+  + User(String, String, Group): 
+  - name: String
+  - credential: String
+  - group: Group
+  + toString(): String
+  + canAccess(String, LocalDateTime, String): boolean
+  + getGroup(): Group
+  + getCredential(): String
+}
+class WebServer {
+  + WebServer(): 
+  - PORT: int
+  - formatter: DateTimeFormatter
+}
+
+Lock            -[#000082,plain]-^  State          
+Partition       -[#000082,plain]-^  Area           
+Propped         -[#000082,plain]-^  State          
+RequestArea     -[#008200,dashed]-^  Request        
+RequestReader   -[#008200,dashed]-^  Request        
+RequestRefresh  -[#008200,dashed]-^  Request        
+Space           -[#000082,plain]-^  Area           
+Unlock          -[#000082,plain]-^  State          
+UnlockShortly   -[#000082,plain]-^  State          
+@enduml

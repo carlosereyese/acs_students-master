@@ -12,15 +12,11 @@ public class Space extends Area {
     this.doors = doors;
   }
 
-  public Area findAreaById(String id) {
-    if (this.getId().equals(id)) {
-      return this;
-    } else {
-      return null;
-    }
+  public void acceptVisitor(Visitor v){
+    v.visitSpace(this);
   }
 
-  public ArrayList<Door> getDoorsGivingAccess() {
+  public ArrayList<Door> getDoors() {
     return doors;
   }
 }

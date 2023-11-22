@@ -42,15 +42,11 @@ public class DirectoryAreas {
   }
 
   public static Area findAreaById(String id) {
+    Visitor findAreaById = new FindAreaByIdVisitor(id);
     for (Area area : allAreas) {
-      Area res = area.findAreaById(id);
-      //llamamos recursivo para poder recorrer el arbol y diferenciar space y partition.
-      if (res != null) {
-        return res;
-      }
+      area.acceptVisitor(findAreaById);
     }
-    System.out.println("area with id " + id + " not found");
-    return null;
+    return findAreaById.getArea();
   }
 
   public static ArrayList<Area> getAllAreas() {

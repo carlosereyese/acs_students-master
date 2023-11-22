@@ -21,7 +21,6 @@ public abstract class Area {
     this.id = id;
   }
 
-  public abstract ArrayList<Door> getDoorsGivingAccess();
+  public void acceptVisitor(Visitor v) {}
 
-  public abstract Area findAreaById(String id);
 }

@@ -1,11 +1,8 @@
 package baseNoStates.requests;
 
-import baseNoStates.Actions;
+import baseNoStates.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import baseNoStates.DirectoryAreas;
-import baseNoStates.Area;
-import baseNoStates.Door;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -42,7 +39,6 @@ public class RequestArea implements Request {
       jsonRequests.put(rd.answerToJson());
     }
     json.put("requestsDoors", jsonRequests);
-    json.put("todo", "request areas not yet implemented");
     return json;
   }
 
@@ -74,7 +70,10 @@ public class RequestArea implements Request {
       //es null cuando no se selecciona nada en la web
 
       //Crear una request para cada door que da access al Area.
-      for (Door door : area.getDoorsGivingAccess()) {
+      Visitor getDoorsGivingAccessVisitor = new GetDoorsGivingAccessVisitor();
+      area.acceptVisitor(getDoorsGivingAccessVisitor);
+      ArrayList<Door> doors = getDoorsGivingAccessVisitor.getDoors();
+      for (Door door : doors) {
         RequestReader requestReader = new RequestReader(credential, action, now, door.getId());
         requestReader.process();
 

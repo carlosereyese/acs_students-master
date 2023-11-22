@@ -21,12 +21,11 @@ public class Group {
   /*  Metodo que verifica que un usuario que
   pertenezca a un grupo tenga acceso a una determinada area.  */
   public boolean canAccessArea(String areaId) {
+    Visitor findAreaById = new FindAreaByIdVisitor(areaId);
     for (Area area : allowedAreas) {
-      if (area.findAreaById(areaId) != null) {
-        return true;
-      }
+      area.acceptVisitor(findAreaById);
     }
-    return false;
+    return findAreaById.getArea() != null;
   }
 
   /*  Metodo que verifica que un usuario que pertenezca a un
