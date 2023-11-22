@@ -9,3 +9,71 @@
 12:39:02.224 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
 12:39:31.763 [Thread-1] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
 12:39:31.781 [Thread-1] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:00.587 [main] INFO  baseNoStates.states.Lock - Area with id ground_floor found
+13:43:00.590 [main] INFO  baseNoStates.states.Lock - Area with id floor1 found
+13:43:00.592 [main] INFO  baseNoStates.states.Lock - Area with id building found
+13:43:09.297 [Thread-0] INFO  baseNoStates.states.Lock - Area with id parking found
+13:43:09.299 [Thread-0] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:09.299 [Thread-0] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:09.299 [Thread-0] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:09.299 [Thread-0] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:13.155 [Thread-1] INFO  baseNoStates.states.Lock - Area with id parking found
+13:43:13.155 [Thread-1] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:13.155 [Thread-1] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:13.155 [Thread-1] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:13.155 [Thread-1] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Area with id building found
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.899 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Door is unlocked now
+13:43:15.900 [Thread-2] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.179 [Thread-3] INFO  baseNoStates.states.Lock - Area with id building found
+13:43:20.179 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.180 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.181 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.181 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:20.181 [Thread-3] INFO  baseNoStates.states.Lock - Door is locked now
+13:43:20.181 [Thread-3] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:23.212 [Thread-4] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:43:23.222 [Thread-4] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:27.220 [Thread-15] INFO  baseNoStates.states.Lock - Door is opened now
+13:43:27.220 [Thread-15] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:36.333 [Thread-49] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:38.973 [Thread-50] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:43:38.973 [Thread-50] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:55.343 [Thread-73] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:43:55.343 [Thread-73] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:43:57.103 [Thread-75] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:43:57.103 [Thread-75] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:44:02.832 [Thread-82] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:44:02.832 [Thread-82] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:51:52.637 [Thread-93] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:51:52.637 [Thread-93] INFO  baseNoStates.states.Lock - Request is processed successfully
+13:51:58.093 [Thread-95] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+13:51:58.094 [Thread-95] INFO  baseNoStates.states.Lock - Request is processed successfully
