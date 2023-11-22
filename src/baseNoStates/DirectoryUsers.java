@@ -1,14 +1,20 @@
 package baseNoStates;
 
+import baseNoStates.states.Lock;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public final class DirectoryUsers {
   private static final ArrayList<User> users = new ArrayList<>();
+
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public static void makeUsers() {
 
@@ -98,7 +104,7 @@ public final class DirectoryUsers {
         return user;
       }
     }
-    System.out.println("user with credential " + credential + " not found");
+    logger.info("User with credential " + credential + " not found");
     return null; // otherwise we get a Java error
   }
 

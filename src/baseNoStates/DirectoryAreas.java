@@ -1,12 +1,16 @@
 package baseNoStates;
 
+import baseNoStates.states.Lock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DirectoryAreas {
 
   private static ArrayList<Area> allAreas;
+  private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public static void makeAreas(ArrayList<Door> allDoors) {
     //creamos primero las hojas del arbol, los spaces, a partir de las puertas que la commponen
@@ -46,7 +50,11 @@ public class DirectoryAreas {
     for (Area area : allAreas) {
       area.acceptVisitor(findAreaById);
     }
+
+    if (findAreaById.getArea() == null ) logger.warn("Area with id " + id + " not found");
+    else logger.info("Area with id " + findAreaById.getArea().getId() + " found");
     return findAreaById.getArea();
+
   }
 
   public static ArrayList<Area> getAllAreas() {
