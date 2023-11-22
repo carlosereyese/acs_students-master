@@ -6,7 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Propped extends State {
-  /*  Aplica toda la logica de los cambios de estados cuando la puerta esta propped.  */
+  /*
+   * The Propped class represents the state of a door where the
+   * door was open in an UnlockShortly state and was never closed again.
+   * It is a concrete state class in the State design pattern.
+   * The Propped state is responsible for handling operations related to a propped door,
+   * such as closing and providing the state's name the other states can't be executed.
+   */
 
   public Propped(Door d) {
     super(d);

@@ -7,7 +7,13 @@ import org.slf4j.LoggerFactory;
 
 
 public class Unlock extends State {
-  /*  Aplica toda la logica de los cambios de estados cuando la puerta esta desbloqueada. */
+  /*
+   * The Unlock class represents the unlocked state of a door.
+   * It is a concrete state class in the State design pattern.
+   * The Unlock state is responsible for handling operations related to an unlocked door,
+   * such as locking, opening, closing, and providing the state's name.
+   */
+
   public Unlock(Door d) {
     super(d);
   }

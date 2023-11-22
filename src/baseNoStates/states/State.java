@@ -1,14 +1,14 @@
 package baseNoStates.states;
 
 import baseNoStates.Door;
-import java.util.Observable;
-import java.util.Observer;
 
 public abstract class State {
-  /*  Esta interfaz implementa los patrones State y Observer. A partir de ella derivan diferentes
-    estados que redefinen los metodos.  */
-
-  //fALTAN COMENTARIOS Y LOG
+  /*
+   * The State class represents different states of a door.
+   * It is part of the State design pattern, providing a common interface for concrete
+   * state classes (e.g., Lock, Unlock, UnlockShortly) to follow. Each concrete state
+   * encapsulates the behavior associated with a specific state of the door.
+   */
 
   protected Door door;
 

@@ -3,12 +3,16 @@ package baseNoStates.states;
 import baseNoStates.Actions;
 import baseNoStates.ClockTimer;
 import baseNoStates.Door;
-import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Lock extends State {
-  /*  Aplica toda la logica de los cambios de estados cuando la puerta esta bloqueada.    */
+  /*
+   * The Lock class represents the locked state of a door.
+   * It is a concrete state class in the State design pattern.
+   * The Lock state is responsible for handling operations related to a locked door,
+   * such as unlocking, opening, closing, and providing the state's name.
+   */
 
   private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
@@ -27,7 +31,7 @@ public class Lock extends State {
 
   public void unlockShortly() {
     logger.info("Door is unlocked shortly now");
-    door.setStateDoor(new UnlockShortly(door, ClockTimer.getInstance()));
+    door.setStateDoor(new UnlockShortly(door));
   }
 
   public void open() {

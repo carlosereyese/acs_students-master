@@ -1,0 +1,11 @@
+12:38:53.127 [main] INFO  baseNoStates.states.Lock - Area with id ground_floor not found
+12:38:53.351 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:38:53.351 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:38:55.007 [main] INFO  baseNoStates.states.Lock - Area with id ground_floor not found
+12:38:55.017 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:38:55.019 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:39:02.215 [main] INFO  baseNoStates.states.Lock - Area with id ground_floor not found
+12:39:02.223 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:39:02.224 [main] INFO  baseNoStates.states.Lock - Area with id floor1 not found
+12:39:31.763 [Thread-1] INFO  baseNoStates.states.Lock - Door is unlocked shortly now
+12:39:31.781 [Thread-1] INFO  baseNoStates.states.Lock - Request is processed successfully
