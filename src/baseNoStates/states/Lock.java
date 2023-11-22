@@ -1,7 +1,6 @@
 package baseNoStates.states;
 
 import baseNoStates.Actions;
-import baseNoStates.ClockTimer;
 import baseNoStates.Door;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
