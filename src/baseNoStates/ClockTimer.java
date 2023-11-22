@@ -9,7 +9,9 @@ public class ClockTimer extends Observable {
       Esta clase extiende de Observable, que nos brinda de los metodos necesarios para aplicar el patron. */
   private int seconds;
 
-  public ClockTimer() {
+  private static ClockTimer clockInstance = null;
+
+  private ClockTimer() {
     this.seconds = 0;
     startTimer();
   }
@@ -20,11 +22,19 @@ public class ClockTimer extends Observable {
       @Override
       public void run() {
         seconds += 10;
-        if (seconds >= 10)
+        if (seconds >= 10) {
           timer.cancel();
+        }
         setChanged(); // Cambia el objeto a estado modificado
         notifyObservers(seconds); // Avisa a los observadores
       }
     }, 10000, 10000);
+  }
+
+  public static ClockTimer getInstance() {
+    if (clockInstance == null) {
+      clockInstance = new ClockTimer();
+    }
+    return clockInstance;
   }
 }

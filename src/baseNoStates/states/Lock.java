@@ -21,7 +21,7 @@ public class Lock extends State {
   }
 
   public void unlockShortly() {
-    door.setStateDoor(new UnlockShortly(door, new ClockTimer()));
+    door.setStateDoor(new UnlockShortly(door, ClockTimer.getInstance()));
   }
 
   public void open() {
