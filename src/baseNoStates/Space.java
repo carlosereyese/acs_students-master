@@ -3,7 +3,9 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public class Space extends Area {
-  /*  Tipo de area que contiene una lista de puertas.  */
+  /*
+   *  It is the leaf part of the Composite design pattern.
+   */
 
   private final ArrayList<Door> doors;
 
@@ -12,7 +14,7 @@ public class Space extends Area {
     this.doors = doors;
   }
 
-  public void acceptVisitor(Visitor v){
+  public void acceptVisitor(Visitor v) {
     v.visitSpace(this);
   }
 

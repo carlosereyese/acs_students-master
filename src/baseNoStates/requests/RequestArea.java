@@ -1,14 +1,16 @@
 package baseNoStates.requests;
 
 import baseNoStates.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
 
 public class RequestArea implements Request {
+  /*
+   * The RequestArea class processes requests to handle areas.
+   */
   private final String credential;
   private final String action;
   private final String areaId;
@@ -63,13 +65,8 @@ public class RequestArea implements Request {
   // them to all of its doors. For some it may be authorized and action will be done, for others
   // it won't be authorized and nothing will happen to them.
   public void process() {
-    //buscamos el Area de la request con la funcion recursiva findaAreabyID.
     Area area = DirectoryAreas.findAreaById(areaId);
-    //una Area es un Space o una Partition
     if (area != null) {
-      //es null cuando no se selecciona nada en la web
-
-      //Crear una request para cada door que da access al Area.
       Visitor getDoorsGivingAccessVisitor = new GetDoorsGivingAccessVisitor();
       area.acceptVisitor(getDoorsGivingAccessVisitor);
       ArrayList<Door> doors = getDoorsGivingAccessVisitor.getDoors();

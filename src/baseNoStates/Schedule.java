@@ -7,10 +7,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Schedule {
-  /*En esta clase se guarda la informacion de un horario, se usara el
-  metodo isAllowedTime para comporovar si un usuario esta intentando
-   * acceder a un siton en el horario que le corresponde,
-   comparando LocalDate que recivimos de la peticion.*/
+  /*
+   * The Schedule class contains the time, date and day
+   * of the week that every user can handle a door.
+   */
   private LocalDate fromDate;
   private LocalDate toDate;
   private ArrayList<DayOfWeek> daysOfWeeks;
@@ -19,8 +19,6 @@ public class Schedule {
 
   public Schedule() {
   }
-
-  ;
 
   public Schedule(LocalDate fromDate, LocalDate toDate, ArrayList<DayOfWeek> daysOfWeeks,
                   LocalTime fromHour, LocalTime toHour) {
@@ -31,8 +29,6 @@ public class Schedule {
     this.toHour = toHour;
   }
 
-  /*  Metodo que verifica que un usuario que pertenezca a un
-  grupo tenga acceso a una determinada hora  */
   public boolean isAllowedAtTime(LocalDateTime dateTime) {
     LocalDate date = dateTime.toLocalDate();
     LocalTime time = dateTime.toLocalTime();
@@ -41,7 +37,6 @@ public class Schedule {
         return time.isAfter(fromHour) && time.isBefore(toHour);
       }
     }
-
     return false;
   }
 
