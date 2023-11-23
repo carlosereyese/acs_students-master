@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DirectoryAreas {
-
+  /*
+   * The DirectoryAreas class initializes the areas with the composite pattern.
+   */
   private static ArrayList<Area> allAreas;
   private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public static void makeAreas(ArrayList<Door> allDoors) {
-    //creamos primero las hojas del arbol, los spaces, a partir de las puertas que la commponen
-    // para luego poder meterlos en una lista i crear las partitions.
     Space parking = new Space(
         new ArrayList<>(Arrays.asList(allDoors.get(0), allDoors.get(1))), "parking");
     Space hall = new Space(
@@ -30,7 +30,6 @@ public class DirectoryAreas {
     Space IT = new Space(
         new ArrayList<>(Collections.singletonList(allDoors.get(8))), "IT");
 
-    //creamos las partitions a partir de coger todas areas que la componen.
     Partition basement = new Partition(
         new ArrayList<>(Collections.singletonList(parking)), "basement");
     Partition groundFloor = new Partition(
@@ -38,7 +37,6 @@ public class DirectoryAreas {
     Partition floor1 = new Partition(
         new ArrayList<>(Arrays.asList(room3, corridor, IT)), "floor1");
 
-    //esta partition, es building de la qual cogemos todas  las partitions.
     Partition building = new Partition(
         new ArrayList<>(Arrays.asList(basement, groundFloor, floor1)), "building");
 
@@ -51,13 +49,13 @@ public class DirectoryAreas {
       area.acceptVisitor(findAreaById);
     }
 
-    if (findAreaById.getArea() == null ) logger.warn("Area with id " + id + " not found");
-    else logger.info("Area with id " + findAreaById.getArea().getId() + " found");
+    if (findAreaById.getArea() == null) {
+      logger.warn("Area with id " + id + " not found");
+    } else {
+      logger.info("Area with id " + findAreaById.getArea().getId() + " found");
+    }
     return findAreaById.getArea();
 
   }
 
-  public static ArrayList<Area> getAllAreas() {
-    return allAreas;
-  }
 }

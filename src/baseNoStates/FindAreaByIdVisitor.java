@@ -3,6 +3,11 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public class FindAreaByIdVisitor implements Visitor {
+  /*
+   * The FindAreaByIdVisitor class is a specific visitor
+   * that handles the findAreaById functionality for each type of area.
+   * It is part of the Visitor design pattern.
+   */
 
   private String id;
 

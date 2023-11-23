@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 
 public class Door {
   private final String id;
-  private boolean closed; // physically
+  private boolean closed;
   private State stateDoor;
-  private String from; //cambiar a space
-  private String to; //cambiar a space
+  private String from;
+  private String to;
   private static final Logger logger = LoggerFactory.getLogger(Lock.class);
 
   public Door(String id) {
@@ -44,7 +44,6 @@ public class Door {
     request.setDoorStateName(getStateName());
   }
 
-  //doaction switch con cada action que tiene que hacer la door.
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:

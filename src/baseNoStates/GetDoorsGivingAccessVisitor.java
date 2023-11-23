@@ -3,7 +3,11 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public class GetDoorsGivingAccessVisitor implements Visitor {
-
+  /*
+   * The GetDoorsGivingAccessVisitor class is a specific visitor
+   * that handles the getDoorsGivingAccess functionality for each type of area.
+   * It is part of the Visitor design pattern.
+   */
   private ArrayList<Door> doors;
 
   public GetDoorsGivingAccessVisitor() {

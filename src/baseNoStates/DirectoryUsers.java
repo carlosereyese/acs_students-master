@@ -12,6 +12,9 @@ import org.slf4j.LoggerFactory;
 
 
 public final class DirectoryUsers {
+  /*
+   * The DirectoryUsers class initializes all the users with their user groups.
+   */
   private static final ArrayList<User> users = new ArrayList<>();
 
   private static final Logger logger = LoggerFactory.getLogger(Lock.class);
@@ -22,7 +25,7 @@ public final class DirectoryUsers {
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
     ArrayList<Area> noPrivilegeAreas = new ArrayList<Area>();
-    //creamos los users ya con un array de araeas al cual los usuarios tienen accesos
+
     Group noPrivilege = new Group(
         "noPrivilege", noPrivilegeAreas, new ArrayList<>(), new Schedule());
     users.add(new User("Bernat", "12345", noPrivilege));
@@ -31,14 +34,11 @@ public final class DirectoryUsers {
 
     //EMPLOYEES:
     // ground floor, floor1, exterior, stairs (this, for all), that is, everywhere but the parking
-    //creamos el array de areas para pasarle al constructor de User.
     Area groundFloor = DirectoryAreas.findAreaById("ground_floor");
     Area floor1 = DirectoryAreas.findAreaById("floor1");
     ArrayList<Area> employeesAreas = new ArrayList<Area>(Arrays.asList(groundFloor, floor1));
 
     // Sep. 1 2023 to Mar. 1 2024
-    //creamos el array de dias y entre que fechas pueden acceder los
-    // usuarios para luego pasarlo al construcotr de schedule
     LocalDate fromDate = LocalDate.parse("2023-09-01");
     LocalDate toDate = LocalDate.parse("2024-03-01");
     ArrayList<DayOfWeek> daysOfWeek = new ArrayList<>(
@@ -46,16 +46,11 @@ public final class DirectoryUsers {
             DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY));
 
     // week days 9-17h
-    //creamos las horas, y creamos la nueva schedule con las
-    // listas de dias, horas a las que pueden acceder los employees.
     LocalTime fromHour = LocalTime.parse("09:00:00");
     LocalTime toHour = LocalTime.parse("17:00:00");
     Schedule schedule = new Schedule(fromDate, toDate, daysOfWeek, fromHour, toHour);
 
     // just shortly unlock
-    // en este caso los employees las unicas acciones que podran
-    // realizar son open close y unlock shortly
-    //creamos array dde actions para saber que acciones pueden hacer.
     ArrayList<String> allowUnlockShortly = new ArrayList<>(
         Arrays.asList(Actions.OPEN, Actions.CLOSE, Actions.UNLOCK_SHORTLY));
     Group employees = new Group("employees", employeesAreas, allowUnlockShortly, schedule);

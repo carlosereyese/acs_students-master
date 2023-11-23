@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class DirectoryDoors {
+  /*
+   * The DirectoryDoors class initializes all the doors.
+   */
   private static ArrayList<Door> allDoors;
 
   private static final Logger logger = LoggerFactory.getLogger(Lock.class);

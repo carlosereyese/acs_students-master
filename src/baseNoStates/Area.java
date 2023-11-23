@@ -3,9 +3,10 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public abstract class Area {
-  /*Area es la classe madre de partition y space*/
-  /*En clase area, esta la funcion find area by id la cual itera de forma recursiva tod0 el arbol de areas y devuelve el area que concuerde con el id
-   * sigue iterando hasta que entre en la ultima hoja y si no ha encontrado ninguna que concuerde con id retorna null*/
+  /*
+   * The Area class represents the compound of partitions or spaces (child classes)
+   *  It is part of the Composite and Visitor design patterns.
+   */
 
   private String id;
 
