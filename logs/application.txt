@@ -215,3 +215,5 @@
 13:26:53.036 [Thread-3] INFO  baseNoStates.states.Lock - Area with id ground_floor found
 13:26:54.467 [Thread-4] INFO  baseNoStates.states.Lock - Area with id room1 found
 13:26:59.816 [Thread-5] INFO  baseNoStates.states.Lock - Area with id room2 found
+13:46:58.633 [Thread-6] INFO  baseNoStates.states.Lock - Area with id building found
+13:47:01.003 [Thread-7] INFO  baseNoStates.states.Lock - Area with id basement found
