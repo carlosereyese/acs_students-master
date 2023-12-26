@@ -1,5 +1,8 @@
 package baseNoStates;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Space extends Area {
@@ -21,4 +24,17 @@ public class Space extends Area {
   public ArrayList<Door> getDoors() {
     return doors;
   }
+
+  public JSONObject toJson(int depth) { // depth not used here
+    JSONObject json = new JSONObject();
+    json.put("class", "space");
+    json.put("id", getId());
+    JSONArray jsonDoors = new JSONArray();
+    for (Door d : getDoors()) {
+      jsonDoors.put(d.toJson());
+    }
+    json.put("access_doors", jsonDoors);
+    return json;
+  }
+
 }

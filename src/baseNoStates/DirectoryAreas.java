@@ -44,6 +44,11 @@ public class DirectoryAreas {
   }
 
   public static Area findAreaById(String id) {
+
+    if (id.equals("ROOT")) {
+      return allAreas.get(0);
+    }
+
     Visitor findAreaById = new FindAreaByIdVisitor(id);
     for (Area area : allAreas) {
       area.acceptVisitor(findAreaById);

@@ -1,5 +1,7 @@
 package baseNoStates;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public abstract class Area {
@@ -24,4 +26,5 @@ public abstract class Area {
 
   public void acceptVisitor(Visitor v) {}
 
+  public abstract JSONObject toJson(int depth);
 }

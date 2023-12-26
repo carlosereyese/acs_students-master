@@ -1,9 +1,6 @@
 package baseNoStates;
 
-import baseNoStates.requests.Request;
-import baseNoStates.requests.RequestReader;
-import baseNoStates.requests.RequestRefresh;
-import baseNoStates.requests.RequestArea;
+import baseNoStates.requests.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -132,11 +129,7 @@ public class WebServer {
           request = makeRequestArea(tokens);
           break;
         case "get_children":
-          //TODO: this is to be implemented when programming the mobile app in Flutter
-          // in order to navigate the hierarchy of partitions, spaces and doors
-          assert false : "request get_children is not yet implemented";
-          request = null;
-          System.exit(-1);
+          request = makeRequestChildren(tokens);
           break;
         default:
           // just in case we change the user interface or the simulator
@@ -161,6 +154,11 @@ public class WebServer {
       LocalDateTime dateTime = LocalDateTime.parse(tokens[6], formatter);
       String areaId = tokens[8];
       return new RequestArea(credential, action, dateTime, areaId);
+    }
+
+    private RequestChildren makeRequestChildren(String[] tokens) {
+      String areaId = tokens[1];
+      return new RequestChildren(areaId);
     }
 
     private String makeHeaderAnswer() {
